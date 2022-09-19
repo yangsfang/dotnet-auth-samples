@@ -7,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAuthentication()
     .AddJwtBearer()
-    .AddJwtBearer("ClaimedDetails")
-    .AddJwtBearer("InvalidScheme");
+    .AddJwtBearer("ClaimedDetails", _ => { })
+    .AddJwtBearer("InvalidScheme", _ => { });
 
 builder.Services.AddAuthorization(options =>
     options.AddPolicy("is_admin", policy =>

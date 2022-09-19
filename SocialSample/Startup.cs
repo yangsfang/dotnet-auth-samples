@@ -17,7 +17,6 @@ using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.MicrosoftAccount;
 using Microsoft.AspNetCore.Authentication.OAuth;
-using Microsoft.AspNetCore.Authentication.Twitter;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -44,7 +43,7 @@ namespace SocialSample
             {
                 // User-Secrets: https://docs.asp.net/en/latest/security/app-secrets.html
                 // See below for registration instructions for each provider.
-                throw new InvalidOperationException("User secrets must be configured for each authentication provider.");
+                //throw new InvalidOperationException("User secrets must be configured for each authentication provider.");
             }
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -52,7 +51,7 @@ namespace SocialSample
                 // You must first create an app with Facebook and add its ID and Secret to your user-secrets.
                 // https://developers.facebook.com/apps/
                 // https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow#login
-                .AddFacebook(o =>
+                /*.AddFacebook(o =>
                 {
                     o.AppId = Configuration["facebook:appid"];
                     o.AppSecret = Configuration["facebook:appsecret"];
@@ -64,7 +63,7 @@ namespace SocialSample
                     {
                         OnRemoteFailure = HandleOnRemoteFailure
                     };
-                })
+                })*/
                 // You must first create an app with Google and add its ID and Secret to your user-secrets.
                 // https://console.developers.google.com/project
                 // https://developers.google.com/identity/protocols/OAuth2WebServer
@@ -86,7 +85,7 @@ namespace SocialSample
                 // You must first create an app with Twitter and add its key and Secret to your user-secrets.
                 // https://apps.twitter.com/
                 // https://developer.twitter.com/en/docs/basics/authentication/api-reference/access_token
-                .AddTwitter(o =>
+                /*.AddTwitter(o =>
                 {
                     o.ConsumerKey = Configuration["twitter:consumerkey"];
                     o.ConsumerSecret = Configuration["twitter:consumersecret"];
@@ -99,7 +98,7 @@ namespace SocialSample
                     {
                         OnRemoteFailure = HandleOnRemoteFailure
                     };
-                })
+                })*/
                 /* Azure AD app model v2 has restrictions that prevent the use of plain HTTP for redirect URLs.
                    Therefore, to authenticate through microsoft accounts, try out the sample using the following URL:
                    https://localhost:44318/
@@ -107,7 +106,7 @@ namespace SocialSample
                 // You must first create an app with Microsoft Account and add its ID and Secret to your user-secrets.
                 // https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-app-registration/
                 // https://apps.dev.microsoft.com/
-                .AddMicrosoftAccount(o =>
+                /*.AddMicrosoftAccount(o =>
                 {
                     o.ClientId = Configuration["microsoftaccount:clientid"];
                     o.ClientSecret = Configuration["microsoftaccount:clientsecret"];
@@ -217,7 +216,7 @@ namespace SocialSample
                             }
                         }
                     };
-                });
+                })*/;
         }
 
         private async Task HandleOnRemoteFailure(RemoteFailureContext context)
